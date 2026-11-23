@@ -515,3 +515,177 @@ html[data-template='swiss'] .up-btn {
   opacity: 1;
   background: rgb(255 255 255 / 0.15);
 }
+
+/* ================================================================== */
+/* GILROY FONT FAMILY                                                 */
+/* ================================================================== */
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-Light.woff2') format('woff2');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-ExtraBold.woff2') format('woff2');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-Heavy.woff2') format('woff2');
+  font-weight: 950;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ================================================================== */
+/* CYBER FUTURISTIC DESIGN SYSTEM                                     */
+/* ================================================================== */
+
+:root {
+  --font-gilroy: 'Gilroy', -apple-system, BlinkMacSystemFont, sans-serif;
+  --up-font-body: 'Gilroy', sans-serif;
+  --up-font-heading: 'Gilroy', sans-serif;
+  --up-primary: #EA580C;
+  --up-accent: #FB923C;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Gilroy', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Gilroy', sans-serif;
+}
+
+/* Glassmorphism */
+.cyber-glass {
+  background: rgba(10, 10, 10, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.cyber-glass-card {
+  background: radial-gradient(120% 120% at 50% 0%, rgba(26, 26, 26, 0.6) 0%, rgba(10, 10, 10, 0.85) 100%);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.8);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cyber-glass-card:hover {
+  border-color: rgba(234, 88, 12, 0.45);
+  box-shadow: 0 20px 40px -15px rgba(234, 88, 12, 0.25);
+  transform: translateY(-3px);
+}
+
+/* Text Gradients */
+.cyber-gradient-orange {
+  background: linear-gradient(135deg, #EA580C 0%, #FB923C 50%, #FDBA74 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.cyber-gradient-silver {
+  background: linear-gradient(180deg, #FFFFFF 20%, #9CA3AF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animations */
+@keyframes cyber-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes cyber-pulse-glow {
+  0%, 100% { box-shadow: 0 0 15px rgba(234, 88, 12, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(234, 88, 12, 0.7); }
+}
+
+@keyframes cyber-spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes marquee-horizontal {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-cyber-float {
+  animation: cyber-float 5s ease-in-out infinite;
+}
+
+.animate-cyber-pulse {
+  animation: cyber-pulse-glow 3s infinite ease-in-out;
+}
+
+.animate-spin-slow {
+  animation: cyber-spin-slow 20s linear infinite;
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-horizontal 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}

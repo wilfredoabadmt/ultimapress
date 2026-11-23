@@ -78,7 +78,7 @@ const block = (src, open) => {
 /** "// up-security: reason" on the line or the line above. */
 const markedSafe = (lines, line) => {
   for (const l of [lines[line - 1], lines[line - 2]]) {
-    const m = l && l.match(/\/\/\s*up-security:\s*(.+)$/)
+    const m = l && l.match(/\/\/\s*up-security:\s*(.+?)\r?$/)
     if (m) return m[1].trim()
   }
   return null
@@ -501,7 +501,7 @@ export async function scanSecurity(dir, { packages = true, deep = null, official
     }
     if (raw.length > 800_000) continue
     const src = stripComments(raw)
-    const lines = raw.split('\n')
+    const lines = raw.split(/\r?\n/)
     const rel = path.relative(root, file).split(path.sep).join('/')
     for (const rule of RULES) {
       const seen = new Set()

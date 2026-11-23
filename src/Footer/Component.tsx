@@ -2,6 +2,7 @@ import { getCachedGlobal } from '@/utilities/getGlobals'
 import Link from 'next/link'
 import React from 'react'
 import { Clock, Mail, MapPin, Phone } from 'lucide-react'
+import { headers } from 'next/headers'
 
 import { ThemeSelector } from '@/providers/Theme/ThemeSelector'
 import { CMSLink } from '@/components/Link'
@@ -12,8 +13,19 @@ import { needsCookieBanner } from '@/components/Visitors'
 import { CookieSettingsLink } from '@/components/Visitors/Consent.client'
 
 export async function Footer() {
+  const headersList = await headers()
+  const pathname = headersList.get('x-pathname') || headersList.get('next-url') || ''
+
   const footerData = await getCachedGlobal('footer', 1)()
   const settings = await getSiteSettings()
+
+  // On custom cyber home, CyberFooter provides full footer
+  if (pathname === '/' || pathname === '') {
+    const chosen = settings.homepage
+    if (!chosen || (typeof chosen === 'object' && !chosen.slug) || chosen === 'home') {
+      return null
+    }
+  }
 
   const cookies = needsCookieBanner(settings)
 
