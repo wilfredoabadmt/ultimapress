@@ -316,13 +316,14 @@ const install = async (dir, fromDir) => {
     sameFile(path.join(dir, 'package.json'), path.join(fromDir, 'package.json'))
   if (same && fs.existsSync(path.join(fromDir, 'node_modules'))) {
     appendLog('\nSame packages as the running version: copying them.\n')
-    await run('cp', ['-a', path.join(fromDir, 'node_modules'), path.join(dir, 'node_modules')])
+    // Use rsync-style copy for better performance
+    await run('rsync', ['-a', '--delete', `${path.join(fromDir, 'node_modules')}/`, `${path.join(dir, 'node_modules')}/`))
     return
   }
   const store = ['--store-dir', path.join(SC, 'pnpm-store')]
   const env = { ...process.env, NODE_ENV: 'development', CI: 'true' }
   try {
-    await run('pnpm', ['install', '--frozen-lockfile', ...store], { cwd: dir, env })
+    await run('pnpm', ['install', '--frozen-lockfile', '--frozen', ...store], { cwd: dir, env })
   } catch {
     appendLog('\nThe lockfile did not match package.json: installing without it.\n')
     await run('pnpm', ['install', '--no-frozen-lockfile', ...store], { cwd: dir, env })

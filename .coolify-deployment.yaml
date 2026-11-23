@@ -1,0 +1,75 @@
+# Coolify Deployment Configuration
+# This file contains settings to optimize deployment speed for Coolify
+#
+# OPTIMIZATION NOTES:
+#
+# 1. IMAGE REUSE:
+#    Coolify should use the pre-built image from GitHub Container Registry:
+#    ghcr.io/mrwebtv/ultimapress:latest
+#
+#    Do NOT select "Build from Dockerfile" - instead select "Pull from Image"
+#    and use: ghcr.io/mrwebtv/ultimapress:latest
+#
+# 2. If you must build from source (custom modifications):
+#    Use buildkit for faster builds:
+#    DOCKER_BUILDKIT=1 docker compose build
+#
+# 3. Environment variables to set in Coolify:
+#    - DATABASE_URL: postgres://ultimapress:your-password@db:5432/ultimapress
+#    - POSTGRES_PASSWORD: your-db-password
+#    - DOMAIN: your-domain.com (optional, for HTTPS)
+#    - SITE_URL: https://your-domain.com (optional)
+#    - SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_FROM_ADDRESS: (email settings)
+#
+# 4. Volume configuration:
+#    These volumes must persist across deployments:
+#    - media:/app/media     (user uploaded media)
+#    - appdata:/app/data    (site code, backups, etc.)
+#
+# 5. Expected deployment times:
+#    - Image only: 1-2 minutes
+#    - Building from source: 15-20 minutes
+#    - Supervisor deploy (within running container): 5-10 minutes
+#
+# 6. For fastest deployments:
+#    a) Use the pre-built image (ghcr.io/mrwebtv/ultimapress:latest)
+#    b) Make code changes via the Site Code admin page, not full redeploy
+#    c) Or use `pnpm ship` to push code to a running container
+
+# Coolify service configuration (alternative to docker-compose.yml)
+# Uncomment and use if Coolify doesn't auto-detect properly:
+#
+# services:
+#   app:
+#     image: ghcr.io/mrwebtv/ultimapress:latest
+#     restart: unless-stopped
+#     ports:
+#       - "80:3000"
+#     volumes:
+#       - media:/app/media
+#       - appdata:/app/data
+#     environment:
+#       - DATABASE_URL
+#       - DOMAIN
+#       - SITE_URL
+#       - SMTP_HOST
+#       - SMTP_PORT
+#       - SMTP_USER
+#       - SMTP_PASS
+#       - SMTP_FROM_ADDRESS
+#       - SMTP_FROM_NAME
+#   volumes:
+#     media:
+#     appdata:
+#   db:
+#     image: postgres:17-alpine
+#     restart: unless-stopped
+#     volumes:
+#       - db:/var/lib/postgresql/data
+#     environment:
+#       - POSTGRES_USER=ultimapress
+#       - POSTGRES_PASSWORD
+#       - POSTGRES_DB=ultimapress
+#       - POSTGRES_HOST_AUTH_METHOD=trust
+#   volumes:
+#     db:

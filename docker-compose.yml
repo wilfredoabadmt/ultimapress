@@ -2,6 +2,16 @@
 # Works with Hostinger Docker Manager "Compose from URL" and the Deploy on Hostinger
 # button: nothing else from the repo is needed.
 #
+# DEPLOY SPEED TIPS FOR COOLIFY:
+# ✅ RECOMMENDED: Use image: ghcr.io/mrwebtv/ultimapress:latest (1-2 min deploy)
+# ❌ Avoid: Build from Dockerfile (15+ min, rebuilds everything)
+#
+# For fastest deployments with Coolify:
+# 1. Don't select "Build from Dockerfile" - the image is already built
+# 2. Set these environment variables in Coolify:
+#    POSTGRES_PASSWORD, DOMAIN, SITE_URL, SMTP_*, etc.
+# 3. Use "Pull from Image" option with: ghcr.io/mrwebtv/ultimapress:latest
+#
 # Optional variables (set them in Docker Manager before deploying):
 #   DOMAIN             your domain, pointed at the VPS IP; enables trusted HTTPS
 #   POSTGRES_PASSWORD  database password (the database is never exposed outside the server)
@@ -26,10 +36,10 @@ services:
       - appdata:/app/data
     healthcheck:
       test: ['CMD-SHELL', 'wget -qO- http://127.0.0.1:3000/robots.txt >/dev/null || exit 1']
-      interval: 30s
+      interval: 15s
       timeout: 5s
-      start_period: 60s
-      retries: 3
+      start_period: 300s
+      retries: 5
     depends_on:
       db:
         condition: service_healthy

@@ -18,5 +18,10 @@ if [ -z "$SITE_URL" ] && [ -n "$DOMAIN" ]; then
   export SITE_URL="https://$DOMAIN"
 fi
 
+# Install rsync for faster node_modules copying in supervisor
+if ! command -v rsync >/dev/null 2>&1; then
+  apk add --no-cache rsync
+fi
+
 # The supervisor runs the site and handles updates from Build > Site code.
 exec node /app/docker/supervisor.mjs
