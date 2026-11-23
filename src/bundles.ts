@@ -1,0 +1,15 @@
+export const FONT_OPTIONS = [
+  'Inter',
+  'Manrope',
+  'DM Sans',
+  'Plus Jakarta Sans',
+  'Outfit',
+  'Space Grotesk',
+  'Playfair Display',
+  'Cormorant Garamond',
+  'Fraunces',
+  'Lora',
+  'Merriweather',
+  'Archivo',
+  'Gilroy',
+]

@@ -517,14 +517,54 @@ html[data-template='swiss'] .up-btn {
 }
 
 /* ================================================================== */
-/* GILROY FONT FAMILY                                                 */
+/* GILROY FONT FAMILY - ALL 20 VARIANTS                                */
 /* ================================================================== */
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-Thin.woff2') format('woff2');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-ThinItalic.woff2') format('woff2');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-UltraLight.woff2') format('woff2');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-UltraLightItalic.woff2') format('woff2');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
 
 @font-face {
   font-family: 'Gilroy';
   src: url('/fonts/gilroy/Gilroy-Light.woff2') format('woff2');
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-LightItalic.woff2') format('woff2');
+  font-weight: 300;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -538,9 +578,25 @@ html[data-template='swiss'] .up-btn {
 
 @font-face {
   font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-RegularItalic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
   src: url('/fonts/gilroy/Gilroy-Medium.woff2') format('woff2');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-MediumItalic.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -554,9 +610,25 @@ html[data-template='swiss'] .up-btn {
 
 @font-face {
   font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-SemiBoldItalic.woff2') format('woff2');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
   src: url('/fonts/gilroy/Gilroy-Bold.woff2') format('woff2');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-BoldItalic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -570,7 +642,15 @@ html[data-template='swiss'] .up-btn {
 
 @font-face {
   font-family: 'Gilroy';
-  src: url('/fonts/gilroy/Gilroy-Black.woff2') format('woff2');
+  src: url('/fonts/gilroy/Gilroy-ExtraBoldItalic.woff2') format('woff2');
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-Heavy.woff2') format('woff2');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -578,9 +658,25 @@ html[data-template='swiss'] .up-btn {
 
 @font-face {
   font-family: 'Gilroy';
-  src: url('/fonts/gilroy/Gilroy-Heavy.woff2') format('woff2');
+  src: url('/fonts/gilroy/Gilroy-HeavyItalic.woff2') format('woff2');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-Black.woff2') format('woff2');
   font-weight: 950;
   font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/fonts/gilroy/Gilroy-BlackItalic.woff2') format('woff2');
+  font-weight: 950;
+  font-style: italic;
   font-display: swap;
 }
 
