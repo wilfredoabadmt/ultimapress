@@ -61,25 +61,8 @@ export const CyberContact: React.FC = () => {
                   </svg>
                 </div>
                 <div>
-                  <span className="text-[11px] font-mono text-gray-500 uppercase">WhatsApp Línea 1</span>
+                  <span className="text-[11px] font-mono text-gray-500 uppercase">WhatsApp Directo</span>
                   <div className="text-white font-bold text-sm group-hover:text-orange-400 transition-colors">+591 71523780</div>
-                </div>
-              </a>
-
-              <a
-                href="https://wa.me/59161240541"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 rounded-xl bg-[#09090c] border border-white/5 hover:border-orange-500/40 transition-all group"
-              >
-                <div className="w-12 h-12 rounded-lg bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
-                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.299.144.35.49 1.199.533 1.286.044.087.073.189.015.305-.058.115-.088.187-.174.289-.087.102-.182.228-.26.306-.089.088-.182.183-.078.361.104.178.461.761.99 1.232.68.608 1.254.796 1.431.884.177.088.281.074.385-.045.104-.119.444-.518.563-.696.119-.178.238-.148.4-.089.162.059 1.026.484 1.202.572.176.088.293.132.336.206.043.074.043.43-.101.835z"/>
-                  </svg>
-                </div>
-                <div>
-                  <span className="text-[11px] font-mono text-gray-500 uppercase">WhatsApp Línea 2</span>
-                  <div className="text-white font-bold text-sm group-hover:text-orange-400 transition-colors">+591 61240541</div>
                 </div>
               </a>
 

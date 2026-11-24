@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X, ArrowUpRight, Zap, ShieldCheck } from 'lucide-react'
 
 export const CyberNavbar: React.FC = () => {
@@ -30,15 +31,22 @@ export const CyberNavbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-black/80 backdrop-blur-xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.8)] py-3'
+          ? 'bg-black/70 backdrop-blur-2xl border-b border-white/5 shadow-[0_10px_30px_rgba(0,0,0,0.7)] py-2.5'
           : 'bg-transparent py-5'
       }`}
     >
       <div className="container mx-auto px-4 md:px-8 max-w-7xl flex items-center justify-between">
         {/* Brand Logo */}
         <Link href="#inicio" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 to-amber-600 flex items-center justify-center font-black text-black text-xl shadow-[0_0_20px_rgba(234,88,12,0.5)] group-hover:scale-105 transition-transform">
-            WA
+          <div className="w-10 h-10 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform">
+            <Image
+              src="/logo-wam.png"
+              alt="Wilfredo Abad Logo"
+              width={40}
+              height={40}
+              className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(234,88,12,0.6)]"
+              priority
+            />
           </div>
           <div className="flex flex-col">
             <span className="font-extrabold text-lg md:text-xl tracking-tight text-white group-hover:text-orange-400 transition-colors">

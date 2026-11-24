@@ -179,7 +179,8 @@ export async function VisualBuilderView({ initPageResult, searchParams }: AdminV
   }
 
   // The site's own look, so the canvas matches the live site.
-  const settings = await getSiteSettings()
+  const dbSettings = await req.payload.findGlobal({ slug: 'site-settings', depth: 0 }).catch(() => null)
+  const settings = dbSettings || (await getSiteSettings())
   const look = {
     primary: safeColor(settings.primaryColor, '#7B2BFF'),
     accent: safeColor(settings.accentColor, '#F21CD9'),

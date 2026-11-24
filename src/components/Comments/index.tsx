@@ -27,7 +27,7 @@ export async function Comments({ postId, allowComments }: { postId: number | str
   return (
     <section className="max-w-[48rem] mx-auto mt-16 w-full" id="comments">
       <h2 className="text-2xl font-bold mb-6">
-        {docs.length === 0 ? 'Leave a comment' : `${docs.length} comment${docs.length === 1 ? '' : 's'}`}
+        {docs.length === 0 ? 'Deja un comentario' : `${docs.length} comentario${docs.length === 1 ? '' : 's'}`}
       </h2>
       <ol className="flex flex-col gap-6 mb-10">
         {topLevel.map((c) => (

@@ -506,7 +506,8 @@ export function VisualBuilder(props: Props) {
       // Canvas styles: the site's look, each section's own styles, and the builder's helpers.
       const canvasCss = () => WIDGET_CSS + WIDGET_CANVAS_CSS + `
 :root{--up-primary:${look.primary};--up-accent:${look.accent};--up-font-heading:'${look.headingFont}',ui-sans-serif,system-ui,sans-serif;--up-font-body:'${look.bodyFont}',ui-sans-serif,system-ui,sans-serif;--radius:.75rem}
-body{margin:0;font-family:var(--up-font-body);background:${look.dark ? '#121218' : '#ffffff'};color:${look.dark ? '#f4f3f8' : '#16161a'}}
+html,body{margin:0;font-family:var(--up-font-body);background:${look.dark ? '#07070a' : '#ffffff'}!important;color:${look.dark ? '#f4f3f8' : '#16161a'}!important}
+.up-design{background:${look.dark ? '#07070a' : 'transparent'}}
 h1,h2,h3,h4,h5,h6{font-family:var(--up-font-heading)}
 *,*::before,*::after{animation-duration:1ms!important;animation-delay:0s!important;animation-iteration-count:1!important;animation-fill-mode:both!important;animation-timeline:auto!important}
 img{max-width:100%}

@@ -12,8 +12,14 @@ export const CyberFooter: React.FC = () => {
           {/* Brand Col */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orange-500 via-orange-600 to-amber-500 flex items-center justify-center font-black text-black text-xl shadow-lg shadow-orange-500/20">
-                W
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center">
+                <Image
+                  src="/logo-wam.png"
+                  alt="Wilfredo Abad Logo"
+                  width={40}
+                  height={40}
+                  className="w-full h-full object-contain filter drop-shadow-[0_0_10px_rgba(234,88,12,0.5)]"
+                />
               </div>
               <div className="flex flex-col">
                 <span className="font-extrabold text-white text-lg tracking-tight">
@@ -92,12 +98,6 @@ export const CyberFooter: React.FC = () => {
                 <span className="text-gray-400 block font-mono">WhatsApp Directo:</span>
                 <a href="https://wa.me/59171523780" className="text-white font-bold hover:text-orange-400 transition-colors">
                   +591 71523780
-                </a>
-              </p>
-              <p>
-                <span className="text-gray-400 block font-mono">Línea Secundaria:</span>
-                <a href="https://wa.me/59161240541" className="text-white font-bold hover:text-orange-400 transition-colors">
-                  +591 61240541
                 </a>
               </p>
               <p>

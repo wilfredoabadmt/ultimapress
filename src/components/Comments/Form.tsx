@@ -46,7 +46,7 @@ export const CommentForm: React.FC<{ postId: number | string; moderated: boolean
   if (state === 'done') {
     return (
       <p className="rounded-[var(--radius)] border border-border bg-card p-5">
-        Thanks! {moderated ? 'Your comment will appear once it has been approved.' : ''}
+        ¡Gracias! {moderated ? 'Tu comentario se publicará una vez que sea aprobado.' : ''}
       </p>
     )
   }
@@ -57,12 +57,12 @@ export const CommentForm: React.FC<{ postId: number | string; moderated: boolean
   return (
     <form onSubmit={onSubmit} className="flex flex-col gap-4">
       <div className="grid gap-4 md:grid-cols-2">
-        <input name="authorName" required maxLength={80} placeholder="Name" className={input} />
+        <input name="authorName" required maxLength={80} placeholder="Tu Nombre Completo" className={input} />
         <input
           name="authorEmail"
           type="email"
           required
-          placeholder="Email (not published)"
+          placeholder="Correo Electrónico (no será publicado)"
           className={input}
         />
       </div>
@@ -71,7 +71,7 @@ export const CommentForm: React.FC<{ postId: number | string; moderated: boolean
         required
         maxLength={5000}
         rows={5}
-        placeholder="Your comment"
+        placeholder="Escribe tu comentario o consulta aquí..."
         className={input}
       />
       {/* Honeypot: hidden from people, filled in by bots */}
@@ -86,7 +86,7 @@ export const CommentForm: React.FC<{ postId: number | string; moderated: boolean
       {state === 'error' && <p className="text-destructive">{error}</p>}
       <div>
         <button type="submit" className="up-btn" disabled={state === 'sending'}>
-          {state === 'sending' ? 'Sending…' : 'Post comment'}
+          {state === 'sending' ? 'Enviando…' : 'Publicar Comentario'}
         </button>
       </div>
     </form>
