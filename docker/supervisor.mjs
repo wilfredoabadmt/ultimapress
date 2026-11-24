@@ -317,7 +317,7 @@ const install = async (dir, fromDir) => {
   if (same && fs.existsSync(path.join(fromDir, 'node_modules'))) {
     appendLog('\nSame packages as the running version: copying them.\n')
     // Use rsync-style copy for better performance
-    await run('rsync', ['-a', '--delete', `${path.join(fromDir, 'node_modules')}/`, `${path.join(dir, 'node_modules')}/`))
+    await run('rsync', ['-a', '--delete', `${path.join(fromDir, 'node_modules')}/`, `${path.join(dir, 'node_modules')}/`])
     return
   }
   const store = ['--store-dir', path.join(SC, 'pnpm-store')]
