@@ -896,6 +896,22 @@ if (state.active && !isBuilt(releaseDir(state.active))) {
 }
 for (const f of fs.readdirSync(RELEASES)) if (f.endsWith('.unpack')) fs.rmSync(path.join(RELEASES, f), { recursive: true, force: true })
 
+// If a new container image was deployed, switch to running /app directly
+try {
+  const buildIdFile = path.join(APP_DIR, '.next', 'BUILD_ID')
+  if (fs.existsSync(buildIdFile)) {
+    const currentBuildId = fs.readFileSync(buildIdFile, 'utf8').trim()
+    if (currentBuildId && currentBuildId !== state.lastImageBuildId) {
+      log(`New container image detected (${currentBuildId}): switching to container version in ${APP_DIR}`)
+      state.previous = state.active
+      state.active = null
+      state.lastImageBuildId = currentBuildId
+      saveState()
+    }
+  }
+} catch (e) {
+  log(`Error checking container build ID: ${e.message}`)
+}
 startMain(state.active || null)
 // A copy of this image's UltimaPress, so sites with their own version can be updated later.
 try {

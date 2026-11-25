@@ -23,5 +23,24 @@ if ! command -v rsync >/dev/null 2>&1; then
   apk add --no-cache rsync
 fi
 
+# Switch to container image version in /app if newly built
+if [ -f /app/.next/BUILD_ID ] && [ -f /app/data/site-code/state.json ]; then
+  CUR_BUILD=$(cat /app/.next/BUILD_ID 2>/dev/null || echo "")
+  node -e "
+    try {
+      const fs = require('fs');
+      const f = '/app/data/site-code/state.json';
+      const s = JSON.parse(fs.readFileSync(f, 'utf8'));
+      if (s.lastImageBuildId !== '$CUR_BUILD') {
+        console.log('[entrypoint] new image build ($CUR_BUILD), resetting active release to null');
+        s.previous = s.active;
+        s.active = null;
+        s.lastImageBuildId = '$CUR_BUILD';
+        fs.writeFileSync(f, JSON.stringify(s, null, 2));
+      }
+    } catch (e) {}
+  "
+fi
+
 # The supervisor runs the site and handles updates from Build > Site code.
 exec node /app/docker/supervisor.mjs
